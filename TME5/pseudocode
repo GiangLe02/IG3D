@@ -1,0 +1,49 @@
+# Use this baseline pseudocode to begin drafting your Pacman game
+
+INITIALIZE GAME:
+    # There are items missing here in the initialization
+    # Hint, 3 items missing
+    Clear Blender scene
+    Set up camera
+    Create Pacman
+    Create Ghosts
+    Create Mazes
+    Create Items
+    Initialize score = 0
+    Initialize lives = 3
+GAME LOOP:
+    WHILE game not over:
+        IF key pressed:
+            GET direction from key
+            ATTEMPT move Pacman:
+                IF no wall collision:
+                    UPDATE Pacman position
+                    IF collect dot:
+                        UPDATE score
+                        DELETE dot
+                        CHECK if dot list empty
+        MOVE ghosts:
+            FOR each ghost:
+                # Remember, the ghost needs to follow Pacman
+                FOR each direction:
+                    GET the new position for this direction
+                    IF wall collision:
+                        SKIP this direction
+                    GET distance between this new position and Pacman
+                CHOOSE the new position with minimum distance
+                UPDATE ghost position
+                IF meet pacman:
+                    UPDATE lives
+                    IF no more lives:
+                        game over
+                    UPDATE pacman to initial position
+                    UPDATE ALL ghosts to initial position
+
+        # Consider the other objectives of the game
+        # What is Pacman collecting and how can it be tracked?
+        UPDATE display:
+            IF no more dot:
+                game over
+            IF key pressed ESC:
+                cancelled game
+

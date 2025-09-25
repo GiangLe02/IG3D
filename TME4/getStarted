@@ -1,0 +1,47 @@
+import bpy
+import random
+import math
+
+# Create a cube
+#bpy.ops.mesh.primitive_cube_add(
+#    location=(2,3,1),
+#    rotation=(0, 0, 1.5708), # 90 degrees in radians    
+#)
+
+# Delete existing objects
+bpy.ops.object.select_all(action='SELECT')
+bpy.ops.object.delete()
+
+# List of primitive mesh functions
+primitives = [
+    bpy.ops.mesh.primitive_cube_add,
+    bpy.ops.mesh.primitive_uv_sphere_add,
+    bpy.ops.mesh.primitive_cylinder_add,
+    bpy.ops.mesh.primitive_cone_add,
+#    bpy.ops.mesh.primitive_torus_add # this one doesn't have scale var
+]
+
+# Create 10 random objects
+for i in range(10):
+    # Pick a random primitive
+    random_primitive = random.choice(primitives)
+    
+    # Generate random position (-5 to 5 on each axis)
+    random_location = (
+        random.uniform(-5,5),
+        random.uniform(-5,5),
+        random.uniform(-5,5)
+    )
+    
+    # Generate random scale (0.5 to 2.0)
+    random_scale = (
+        random.uniform(0.5, 2.0),
+        random.uniform(0.5, 2.0),
+        random.uniform(0.5, 2.0)
+    )
+    
+    # Create the object with random properties
+    random_primitive(
+        location = random_location,
+        scale = random_scale
+    )

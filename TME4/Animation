@@ -1,0 +1,23 @@
+import bpy
+
+# Delete existing objects
+bpy.ops.object.select_all(action='SELECT')
+bpy.ops.object.delete()
+
+# Create cube
+bpy.ops.mesh.primitive_cube_add(location=(0,0,0))
+
+# Let us reference our active object
+cube = bpy.context.active_object
+
+# Create keyframes for Z location
+cube.location.z = 0
+cube.keyframe_insert(data_path="location", frame = 1)
+
+cube.location.z = 5 # Move 5 units up
+cube.keyframe_insert(data_path="location", frame=50)
+
+# Set animation start and end frames
+scene = bpy.context.scene
+scene.frame_start = 1
+scene.frame_end = 50

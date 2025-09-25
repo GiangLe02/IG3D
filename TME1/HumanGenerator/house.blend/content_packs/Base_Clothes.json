@@ -1,0 +1,19 @@
+{
+	"config": {
+		"pack_name": "Base Clothes",
+		"creator": "HumGen",
+		"pack_version": "1.0",
+		"required_version": "1.0",
+		"weblink": "https://www.humgen3d.com"
+		},	
+	"categs": {
+		"humans": false,
+		"human_textures": false,
+		"shapekeys": false,
+		"hair": false,
+		"poses": false,
+		"clothes": true,
+		"footwear": true,
+		"expressions": false
+		}
+}
